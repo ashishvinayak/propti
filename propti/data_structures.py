@@ -728,7 +728,7 @@ class Version:
         try:
             #subprocess.check_call(['fds'], shell=True, stdout=subprocess.PIPE,
             #                    stderr=subprocess.PIPE)
-            proc = subprocess.Popen(['fds'], shell=True, stdout=subprocess.PIPE,
+            proc = subprocess.Popen(['mpiexec -n 1 fds'], shell=True, stdout=subprocess.PIPE,
                                   stderr=subprocess.STDOUT)
             # This bit is only specfic to fds
             while True:

@@ -43,7 +43,7 @@ setups = pr.SimulationSetupSet()
 r = pr.Relation()
 r.model.file_name = "{}_tga.csv".format(CHID)
 r.model.label_x = 'Time'
-r.model.label_y = 'MLR'
+r.model.label_y = 'Total MLR'
 r.model.header_line = 1
 r.experiment.file_name = "tga_experimental_data.csv"
 r.experiment.label_x = 'Time'
@@ -59,7 +59,7 @@ s = pr.SimulationSetup(name='tga_analysis_01',
                        work_dir='tga_analysis_run_01',
                        model_template=template_file,
                        model_parameter=mps0,
-                       model_executable='fds',
+                       model_executable='mpiexec -n 1 fds',
                        relations=r)
 
 # append above object to simulation setup set

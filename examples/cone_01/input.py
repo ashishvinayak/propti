@@ -58,7 +58,7 @@ for iso in ['Alu', 'ISO']:
                            work_dir='cone_{}'.format(iso),
                            model_template=template_file,
                            model_parameter=mps,
-                           model_executable='fds',
+                           model_executable='mpiexec -n 1 fds',
                            relations=r)
 
     # append above object to simulation setup set

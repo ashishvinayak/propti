@@ -93,7 +93,7 @@ for i in range(len(HeatingRatesTGA)):
     relation.model.file_name = '{}_{}K_tga.csv'.format(CHID,
                                                        str(HeatingRatesTGA[i]))
     relation.model.label_x = 'Time'
-    relation.model.label_y = 'MLR'
+    relation.model.label_y = 'Total MLR'
     relation.model.header_line = 1
 
     # Information on experimental data.
@@ -121,7 +121,7 @@ for i in range(len(HeatingRatesTGA)):
                            work_dir=sn,
                            model_template=template_file,
                            model_parameter=model_parameter_setups[i],
-                           model_executable='fds',
+                           model_executable='mpiexec -n 1 fds',
                            relations=r[i])
 
     ssetups.append(s)
